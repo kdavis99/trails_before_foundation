@@ -27,10 +27,11 @@ class QuotesController < ApplicationController
   def create
     @trail = Trail.find params[:trail_id]
     @quote = @trail.quotes.new(quote_params)
+    @quote.user = current_user
 
     respond_to do |format|
       if @quote.save
-        format.html { redirect_to @quote, notice: 'Quote was successfully created.' }
+        format.html { redirect_to @trail, notice: 'Quote was successfully created.' }
         format.json { render :show, status: :created, location: @quote }
       else
         format.html { render :new }
