@@ -12,6 +12,7 @@ class TrailsController < ApplicationController
   # GET /trails/1.json
   def show
 		respond_to do |format|
+   		format.html { redirect_to trails_url }
    		format.js { render :show_trail }
 		end
 	 #redirect_to trails_url
@@ -79,6 +80,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trail_params
-      params.require(:trail).permit(:Name, :StartLng, :StartLat, :EndLng, :EndLat)
+      params.require(:trail).permit(:Name, :Description, :StartLng, :StartLat, :EndLng, :EndLat)
     end
 end
