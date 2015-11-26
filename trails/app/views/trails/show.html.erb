@@ -31,6 +31,7 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
 });
 </script>
 
+
 <p>
   <strong>Name:</strong>
   <%= @trail.Name %>
@@ -60,5 +61,15 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
   <%= @trail.EndLat %>
 </p>
 
+<p>
+  <strong>Quotes:</strong>
+  <% @trail.quotes.each do |q| %>
+		<% if !q.new_record? %>
+			<%= @trail.q %>
+		<% end %>
+	<% end %>
+</p>
+
+<%= render 'quotes/form' %>
 <%= link_to 'Edit', edit_trail_path(@trail) %> |
 <%= link_to 'Back', trails_path %>

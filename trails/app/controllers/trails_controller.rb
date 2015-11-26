@@ -11,10 +11,11 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
-		respond_to do |format|
-   		format.html { redirect_to trails_url }
-   		format.js { render :show_trail }
-		end
+	   @quote = @trail.quotes.new
+		#respond_to do |format|
+   		#format.html { redirect_to trails_url }
+   		#format.js { render :show_trail }
+		#end
 	 #redirect_to trails_url
   end
 
