@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 20151126003733) do
   create_table "trails", force: :cascade do |t|
     t.string   "Name"
     t.string   "Description"
-    t.integer  "StartLng"
-    t.integer  "StartLat"
-    t.integer  "EndLng"
-    t.integer  "EndLat"
+    t.float    "StartLng"
+    t.float    "StartLat"
+    t.float    "EndLng"
+    t.float    "EndLat"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
