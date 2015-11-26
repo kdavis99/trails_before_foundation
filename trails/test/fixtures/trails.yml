@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  StartLng: 1
+  StartLat: 1
+  EndLng: 1
+  EndLat: 1
+
+two:
+  Name: MyString
+  StartLng: 1
+  StartLat: 1
+  EndLng: 1
+  EndLat: 1
