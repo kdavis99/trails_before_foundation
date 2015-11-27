@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :images
   resources :quotes
   resources :trails
   devise_for :users
 
   resources :trails do
 	resources :quotes, :shallow => true
+	resources :images, :shallow => true
   end
   root 'trails#index'
   # The priority is based upon order of creation: first created -> highest priority.

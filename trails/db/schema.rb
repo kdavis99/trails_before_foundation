@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126104516) do
+ActiveRecord::Schema.define(version: 20151126211931) do
+
+  create_table "images", force: :cascade do |t|
+    t.string   "filename"
+    t.integer  "trail_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "images", ["trail_id"], name: "index_images_on_trail_id"
+  add_index "images", ["user_id"], name: "index_images_on_user_id"
 
   create_table "quotes", force: :cascade do |t|
     t.string   "quote"

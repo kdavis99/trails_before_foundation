@@ -5,7 +5,6 @@
 
 
 
-
 <table>
   <thead>
     <tr>
@@ -29,9 +28,10 @@
         <td><%= trail.EndLat %></td>
 		  <% #render 'show', trail: @trail %>
 		  <% #link_to 'Show', request.original_url %>
-		  <td><%= link_to trail.Name, trail, :remote => true, data: { no_turbolink: true } %></td>
-		  <div id="contenthere"></div>
-		  <td><%= link_to 'Show', trail%></td>
+		  <% #link_to trail.Name, trail, :remote => true, data: { no_turbolink: true } %>
+		  <!-- <div id="contenthere"></div> -->
+  		  <% @refresh = 0 %>
+		  <td><%= link_to 'Show', trail, data: { no_turbolink: true } %></td>
         <td><%= link_to 'Edit', edit_trail_path(trail) %></td>
         <td><%= link_to 'Destroy', trail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

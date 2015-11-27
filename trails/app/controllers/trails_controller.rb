@@ -11,7 +11,9 @@ class TrailsController < ApplicationController
   # GET /trails/1
   # GET /trails/1.json
   def show
+	   @trail = Trail.find params[:id]
 	   @quote = @trail.quotes.new
+	   @image = @trail.images.new
 		#respond_to do |format|
    		#format.html { redirect_to trails_url }
    		#format.js { render :show_trail }
