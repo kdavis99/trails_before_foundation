@@ -27,6 +27,7 @@ class ImagesController < ApplicationController
   def create
 	 @trail = Trail.find params[:trail_id]
     @image = @trail.images.new(image_params)
+	 @image.generate_filename
 	 @image.user = current_user
 
     @uploaded_io = params[:image][:uploaded_file]
@@ -34,6 +35,7 @@ class ImagesController < ApplicationController
     File.open(Rails.root.join('public', 'images', @image.filename), 'wb') do |file|
    	 file.write(@uploaded_io.read)
     end
+	 
 
     respond_to do |format|
       if @image.save

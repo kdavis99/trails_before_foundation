@@ -57,6 +57,22 @@
 </p>
 
 
+<p>
+  <strong>Quotes:</strong>
+  <% @trail.images.each do |image| %>
+		<% if !image.new_record? %>
+		 <div class="images">
+            <%= link_to (image_tag (root_url + "/images/" + image.filename), size: "100x100", alt: image.filename), image %><br>	
+				<%= image.user[:name] %>
+				</div>
+				<% @allusers.each do |u| %>
+				<% if u.id == image.user_id %>
+					<%= u.name %>
+				<% end %>
+			<% end %><br>
+		<% end %>
+	<% end %>
+</p>
 
 
 
