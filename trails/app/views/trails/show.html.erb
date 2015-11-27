@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.images {
+    display: inline-block;
+    text-align: center;
+}
+
+</style>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region="></script> 
@@ -7,6 +20,7 @@
 <div style='width: 90%;'>
     <div id="directions" style='width: 90%; height: 400px;'></div>
 </div>
+
 
 <%= @trail %>
 	  <%= @trail.StartLat %>  <%= "HI" %>
@@ -47,11 +61,7 @@
   <% @trail.quotes.each do |q| %>
 		<% if !q.new_record? %>
 			"<%= q.quote  %>"
-			<% @allusers.each do |u| %>
-				<% if u.id == q.user_id %>
-					-<%= u.name %>
-				<% end %>
-			<% end %><br>
+			-<%= q.user[:name] %><br>
 		<% end %>
 	<% end %>
 </p>
@@ -60,17 +70,12 @@
 <p>
   <strong>Quotes:</strong>
   <% @trail.images.each do |image| %>
-		<% if !image.new_record? %>
-		 <div class="images">
+			<% if !image.new_record? %>
+		 		<div class="images">
             <%= link_to (image_tag (root_url + "/images/" + image.filename), size: "100x100", alt: image.filename), image %><br>	
 				<%= image.user[:name] %>
 				</div>
-				<% @allusers.each do |u| %>
-				<% if u.id == image.user_id %>
-					<%= u.name %>
-				<% end %>
-			<% end %><br>
-		<% end %>
+			<% end %>
 	<% end %>
 </p>
 
@@ -113,3 +118,4 @@ handler.buildMap({ internal: {id: 'directions'}}, function(){
 <% end %>
 <%= link_to 'Edit', edit_trail_path(@trail) %> |
 <%= link_to 'Back', trails_path %>
+</html>
